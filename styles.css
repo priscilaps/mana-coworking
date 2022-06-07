@@ -214,6 +214,9 @@ body.menu-expanded nav .buttonContact {
   font-size: 1.8rem;
   line-height: 2.3rem;
 }
+body.menu-expanded nav .buttonContact svg *{
+  fill: var(--primary-color);
+}
 body.menu-expanded nav .buttonContact:hover {
   border: .1rem solid var(--primary-color-hover);
   color: var(--primary-color-hover);
@@ -548,20 +551,27 @@ footer .wrapper .social-links{
     align-items: center;
     padding: 1.0rem 2.4rem;
     gap: 1.6rem;
-
+    
     font-weight: 700;
     font-size: 1.4rem;
     line-height: 1.8rem;
     text-transform: uppercase;
     color: var(--primary-color);
-
+    
     border: .1rem solid var(--primary-color);
     border-radius: 4rem;
+  }
+  nav#navigation .menu .contact .buttonContact svg *{
+    fill: var(--primary-color);
   }
   nav#navigation .menu .contact .buttonContact.active,
   nav#navigation .menu .contact .buttonContact:hover{
     color: white;
     background-color: var(--primary-color);
+  }
+  nav#navigation .menu .contact .buttonContact.active svg *,
+  nav#navigation .menu .contact .buttonContact:hover svg *{
+    fill: white;
   }
   nav#navigation .wrapper button,
   nav#navigation .wrapper .social-links{
@@ -587,12 +597,13 @@ footer .wrapper .social-links{
   }
   /*======== HOME ====================================*/
   #home::before{
-    height: calc(98% - var(--nav-height));
+    height: calc(95% - var(--nav-height));
   }
   #home {
-    padding-top: var(--nav-height);
+    padding-top: calc(var(--nav-height) + 6rem);
+    padding-bottom: 6rem;
   }
-  #home .wrapper{
+/*   #home .wrapper{
     display: grid;
     grid-template-columns: 3fr 2fr;
     grid-template-areas: 
@@ -602,7 +613,7 @@ footer .wrapper .social-links{
   #home .col-A{
     grid-area: A1;
     align-self: center;
-  }
+  } */
   #home header h1{
     font-size: 5.2rem;
     line-height: 130%;
@@ -610,10 +621,10 @@ footer .wrapper .social-links{
   #home header h1,
   #home header h4,
   #home .content p{
-    text-align: left;
+    text-align: center;
   }
   #home .buttonContact{
-    margin-left: 0;
+    margin-inline: auto;
   }
   #home img{
     grid-area: B;
@@ -623,7 +634,7 @@ footer .wrapper .social-links{
   #home ul.stats{
     flex-direction: row;
     grid-area: C;
-    margin-top: -4.5rem;
+    margin-top: .5rem;
     gap: 0;
   }
   #home ul.stats .stat{
