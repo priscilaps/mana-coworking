@@ -454,6 +454,13 @@ footer .wrapper .social-links{
 
   transition: all .2s ease-in-out;
 }
+#backToTop svg circle{
+  fill: var(--primary-color);
+  transition: all .2s ease-in-out;
+}
+#backToTop:hover svg circle{
+  fill: var(--primary-color-hover);
+}
 #backToTop.show{
   opacity: 1;
   visibility: visible;
