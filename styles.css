@@ -391,6 +391,9 @@ body.menu-expanded nav .wrapper{
   fill: var(--primary-color);
   stroke: var(--primary-color);
 }
+#contact .wrapper .content a.buttonContact svg path{
+  stroke: none !important;
+}
 #contact .wrapper .content svg:not(#phone) path{
   stroke: var(--primary-color);
 }
