@@ -72,7 +72,7 @@ section {
   padding-inline: 2rem;
 }
 h1, h2, h3, h4, h5, h6{
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', sans-serif;
   letter-spacing: .2rem;
 }
 section header h1 {
@@ -261,7 +261,7 @@ body.menu-expanded nav .wrapper{
   /*se a imagem num ficasse colada ainda poderia usar o object-position*/
 }
 .stats{
-  display: flex;
+  display: none; /* flex */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -293,8 +293,8 @@ body.menu-expanded nav .wrapper{
 }
 
 /*======== SERVICES ====================================*/
-#services {
-  padding-block: 10rem ;
+section#services{
+  padding-block: 8rem;
 }
 #services h2{
   margin-inline: .6rem;
@@ -303,15 +303,13 @@ body.menu-expanded nav .wrapper{
 #services .cards {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: stretch;
   gap: 3.2rem;
 }
 #services .card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 2.4rem;
   gap: 1.6rem;
   
@@ -320,8 +318,15 @@ body.menu-expanded nav .wrapper{
   border: .1rem solid var(--primary-color-light);
   border-radius: .6rem;
 }
+#services .cards .card img {
+  max-height: 24rem;
+  object-fit: cover;
+}
+#services .cards .card:last-of-type img {
+  object-position: bottom;
+}
 #services .card p{
-  text-align: justify;
+  text-align: center;
 }
 #services .card span {
   display: flex;
@@ -335,6 +340,7 @@ body.menu-expanded nav .wrapper{
   background-color: var(--primary-color-light);
 }
 #services .card h3 {
+  color: var(--primary-color);
   font-size: 2.4rem;
 
   margin-bottom: 1.6rem;
@@ -346,7 +352,7 @@ body.menu-expanded nav .wrapper{
   background-color: var(--primary-color-light);
 }
 #about .wrapper{
-  padding-block: 10rem;
+  padding-block: 5rem;
 
   text-align: left;
 }
@@ -362,7 +368,8 @@ body.menu-expanded nav .wrapper{
 /*======== CONTACT ====================================*/
 
 #contact {
-  padding-block: 10rem ;
+  padding-block: 5rem ;
+  text-align: left;
 }
 #contact h2{
   text-align: left;
@@ -374,6 +381,25 @@ body.menu-expanded nav .wrapper{
   align-items:center;
   column-gap:.8rem;
 }
+#contact a:not(.buttonContact){
+  text-decoration: none;
+  display: flex;
+  align-items:center;
+  margin-bottom:1.6rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  transition: all .3s ease-in-out;
+}
+#contact a:not(.buttonContact):hover{
+  color: var(--primary-color-hover);
+}
+#contact a:not(.buttonContact):hover svg#phone path{
+  fill: var(--primary-color-hover);
+  stroke: var(--primary-color-hover);
+}
+#contact a svg{
+  margin-right: .8rem;
+}
 #contact p:not(:last-of-type){
   margin-bottom: 1.6rem;
 }
@@ -382,25 +408,32 @@ body.menu-expanded nav .wrapper{
   margin-top: 3.2rem;
   margin-bottom: 6rem;
 }
+#contact .wrapper iframe{
+  border-radius: .6rem;
+  width: 100%;
+  height: 40rem;
+  margin-bottom: 6rem;
+}
 #contact .wrapper img{
+  width: 100%;
   height: 40rem;
   object-fit: cover;
-  object-position: 0 -12rem;
 }
-#contact .wrapper .content svg#phone path{
+#contact .wrapper svg#phone path{
   fill: var(--primary-color);
   stroke: var(--primary-color);
+  transition: all .3s ease-in-out;
 }
-#contact .wrapper .content a.buttonContact svg path{
+#contact .wrapper a.buttonContact svg path{
   stroke: none !important;
 }
-#contact .wrapper .content svg:not(#phone) path{
+#contact .wrapper svg:not(#phone) path{
   stroke: var(--primary-color);
 }
 /*======== FOOTER ====================================*/
 footer {
   padding-inline: 2.6rem;
-  padding-block: 6rem;
+  padding-block: 5em;
   text-align: left;
 
   background-color: var(--primary-color);
@@ -491,7 +524,7 @@ footer .wrapper .social-links{
     width: min(112rem, 100%);
   }
   section:not(#home){
-    padding-block: 16rem;
+    padding-block: 8rem;
   }
   section:not(#home) h2{
     font-size: 4rem;
@@ -654,6 +687,9 @@ footer .wrapper .social-links{
     border-left: .1rem solid var(--primary-color);
   }
   /*======== SERVICES ====================================*/
+  section#services {
+    padding-top: 2rem !important;
+  }
   #services h2{
     width: 50rem;
     margin-inline: auto;
@@ -684,12 +720,28 @@ footer .wrapper .social-links{
     /*======== CONTACT ====================================*/
     #contact .wrapper{
       display: grid;
-      grid-template-areas: 'A B';
+      grid-template-areas: 'A B C';
+      grid-template-columns: auto 1fr 1fr;
       padding: 0;
-      column-gap: 6.7rem;
+      column-gap: 3rem;
     }
     #contact .wrapper .col-A{
       grid-area: A;
+      align-self: stretch;
+      
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    #contact .wrapper .col-B{
+      grid-area: B;
+      align-self: center;
+    }
+    #contact .wrapper iframe{
+      margin-bottom: 0;
+    }
+    #contact .wrapper .col-C{
+      grid-area: C;
       align-self: center;
     }
     #contact h2{

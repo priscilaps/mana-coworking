@@ -62,5 +62,7 @@ ScrollReveal({
   #about,
   #about img,
   #contact,
+  #contact col-A,
+  #contact iframe,
   #contact img
 `);
