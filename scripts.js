@@ -207,7 +207,6 @@ function setSlider() {
       }
     }
     allowShift = true;
-    console.log(index, direction);
     if (bullets[index - 1]) bullets[index - 1].classList.add('active');
   }
   return { slidesContainer, slideSize, bullets };
