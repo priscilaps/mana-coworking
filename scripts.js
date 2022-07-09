@@ -170,7 +170,7 @@ function setSlider() {
   }
   function shiftSlide(dir, action) {
     slidesContainer[0].classList.add('shifting');
-    bullets[index - 1].classList.remove('active');
+    if (bullets[index - 1]) bullets[index - 1].classList.remove('active');
 
     if (allowShift) {
       if (!action) {

@@ -857,6 +857,11 @@ footer .wrapper .social-links{
     #contact .buttonContact{
       margin-bottom: 0;
     }
+    #contact a:not(.buttonContact),
+    #contact .wrapper p{
+      margin-bottom:0;
+    }
+    #contact p
     /*======== FOOTER ====================================*/
     footer {
       padding-block: 8rem;
