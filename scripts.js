@@ -70,21 +70,22 @@ function getScrollbarWidth() {
   return window.innerWidth - document.documentElement.clientWidth;
 }
 //-------------SLIDER-BEGIN----------------//
-let index = 0;
-function setSlider() {
-  let slidesContainer,
-    posX1 = 0,
-    posX2 = 0,
-    posInitial,
-    posFinal,
-    threshold = 100,
-    slideSize,
-    slidesLength,
-    direction,
-    allowShift = true,
-    root,
-    bullets = document.querySelectorAll('.bullets ul li a');
 
+let slidesContainer,
+  posX1 = 0,
+  posX2 = 0,
+  posInitial,
+  posFinal,
+  threshold = 100,
+  index = 0,
+  slideSize,
+  slidesLength,
+  direction,
+  allowShift = true,
+  root,
+  bullets = document.querySelectorAll('.bullets ul li a');
+
+function setSlider() {
   const slider = document.querySelector('.slider');
   // Touch events
   slider.addEventListener('touchstart', dragStart);
@@ -167,7 +168,6 @@ function setSlider() {
     slidesContainer[0].style.left =
       slidesContainer[0].offsetLeft - posX2 + 'px';
   }
-
   function shiftSlide(dir, action) {
     slidesContainer[0].classList.add('shifting');
     bullets[index - 1].classList.remove('active');
@@ -222,5 +222,7 @@ function goToSlide(slide) {
   sliderInfo.slidesContainer[0].style.left =
     -(index * sliderInfo.slideSize) + 'px';
 }
-
+setInterval(function () {
+  document.querySelector('.next').click();
+}, 5000);
 //-------------SLIDER-END----------------//
