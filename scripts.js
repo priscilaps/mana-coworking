@@ -1,8 +1,7 @@
 window.addEventListener('scroll', onScroll);
-window.addEventListener(
-  'resize',
-  document.querySelector('.slider').contentWindow.location.reload(true),
-);
+/* window.addEventListener('resize', () => {
+  document.querySelector('.slider').contentWindow.location.reload(true);
+}); */
 
 function onScroll() {
   showNavOnScroll();
@@ -226,7 +225,10 @@ function goToSlide(slide) {
   sliderInfo.slidesContainer[0].style.left =
     -(index * sliderInfo.slideSize) + 'px';
 }
-setInterval(function () {
-  document.querySelector('.next').click();
-}, 5000);
+function autoRunSlider() {
+  setInterval(function () {
+    document.querySelector('.next').click();
+  }, 5000);
+}
+autoRunSlider();
 //-------------SLIDER-END----------------//
