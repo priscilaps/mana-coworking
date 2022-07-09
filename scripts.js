@@ -1,4 +1,8 @@
 window.addEventListener('scroll', onScroll);
+window.addEventListener(
+  'resize',
+  document.querySelector('.slider').contentWindow.location.reload(true),
+);
 
 function onScroll() {
   showNavOnScroll();
