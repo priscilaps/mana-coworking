@@ -5,7 +5,6 @@ window.addEventListener('scroll', onScroll);
 
 function onScroll() {
   showNavOnScroll();
-  backToTopOnScroll();
   activateMenuAtCurrentSection(home);
   activateMenuAtCurrentSection(services);
   activateMenuAtCurrentSection(about);
@@ -34,14 +33,6 @@ function showNavOnScroll() {
     navigation.classList.add('scroll');
   } else {
     navigation.classList.remove('scroll');
-  }
-}
-
-function backToTopOnScroll() {
-  if (scrollY > 550) {
-    backToTop.classList.add('show');
-  } else {
-    backToTop.classList.remove('show');
   }
 }
 
@@ -225,10 +216,10 @@ function goToSlide(slide) {
   sliderInfo.slidesContainer[0].style.left =
     -(index * sliderInfo.slideSize) + 'px';
 }
-function autoRunSlider() {
+/* function autoRunSlider() {
   setInterval(function () {
     document.querySelector('.next').click();
-  }, 5000);
+  }, 8000);
 }
-autoRunSlider();
+autoRunSlider(); */
 //-------------SLIDER-END----------------//

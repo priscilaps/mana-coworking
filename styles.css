@@ -218,13 +218,6 @@ body.menu-expanded nav .buttonContact {
   font-size: 1.8rem;
   line-height: 2.3rem;
 }
-body.menu-expanded nav .buttonContact svg *{
-  fill: var(--primary-color);
-}
-body.menu-expanded nav .buttonContact:hover {
-  border: .1rem solid var(--primary-color-hover);
-  color: var(--primary-color-hover);
-}
 body.menu-expanded nav .closeMenu {
   grid-area: 'button';
 }
@@ -345,24 +338,72 @@ body.menu-expanded nav .wrapper{
   background-image: url('./assets/topo_1.jpg');
 }
 #home .slider .wrapper-full .slides .slide .wrapper{
+  height: var(--slider-height-mobile);
   display: flex;
   flex-direction: row;
+
+  margin: 0;
+  width: 100%;
+}
+#home .slider .wrapper-full .slides .slide-1 .wrapper,
+#home .slider .wrapper-full .slides .slide-4 .wrapper,
+#home .slider .wrapper-full .slides .slide-5 .wrapper,
+#home .slider .wrapper-full .slides .slide-6 .wrapper{
+  background: rgb(33,37,41);
+  background: linear-gradient(90deg, rgba(33,37,41,0.7) 0%, rgba(33,37,41,0.7) 40%, rgba(33,37,41,0) 50%);
+}
+#home .slider .wrapper-full .slides .slide-2 .wrapper{
+  background: rgb(33,37,41);
+  background: linear-gradient(90deg, rgba(33,37,41,0) 50%, rgba(33,37,41,0.7) 60%, rgba(33,37,41,0.7) 100%);
+}
+#home .slider .wrapper-full .slides .slide-3 .wrapper{
+  background: rgb(33,37,41);
+  background: linear-gradient(0deg, rgba(33,37,41,0) 0%, rgba(33,37,41,0) 50%, rgba(33,37,41,0.7) 80%);
+}
+
+#home .slider .wrapper-full .slides .slide .wrapper .content{
+  padding: 2rem;
+}
+#home .slider .wrapper-full .slides .slide .wrapper .col-A .content p {
+  display: block;
+  margin-bottom: 3.2rem;
+
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 150%;
+  text-align: center;
+  color: var(--primary-color-light);
+
 }
 #home .slider .wrapper-full .slides .slide .wrapper .col-A{
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-section#home .slider .wrapper-full .slides .slide .wrapper .col-A header h1 {
-  font-size: 3rem;
+#home .slider .wrapper-full .slides .slide-3 .wrapper .col-A{
+  justify-content: flex-start;
 }
-section#home .slider .wrapper-full .slides .slide .wrapper .col-A header h4 {
-  font-size: 2rem;
+#home .slider .wrapper-full .slides .slide-2 .wrapper .col-A{
+  margin-left: 60%;
+  width: 40%;
+}
+#home .slider .wrapper-full .slides .slide-3 .wrapper .col-A{
+  width: 100%;
+}
+#home .slider .wrapper-full .slides .slide-6{
+  align-self: flex-start;
 }
 #home .slider .wrapper-full .slides .slide .wrapper .col-A .content .buttonContact{
   margin-top: 2rem;
-  font-size: 1.2rem;
+  font-size: .8rem;
+  padding: .4rem .8rem;
+  gap: .4rem;
+  background-color: transparent;
+  border: 1px solid var(--primary-color-light);
 }
-#home .slider .wrapper-full .slides .slide .wrapper .col-A p {
-  display: none; 
+#home .slider .wrapper-full .slides .slide .wrapper .col-A .content .buttonContact svg{
+  display: none;
 }
 #home .slider .wrapper-full .slides .slide-2:before{
   background-image: url('./assets/topo_2.jpg');
@@ -398,6 +439,7 @@ section#services{
 #services .card {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   padding: 2.4rem;
   gap: 1.6rem;
   
@@ -478,13 +520,7 @@ section#services{
   color: var(--primary-color);
   transition: all .3s ease-in-out;
 }
-#contact a:not(.buttonContact):hover{
-  color: var(--primary-color-hover);
-}
-#contact a:not(.buttonContact):hover svg#phone path{
-  fill: var(--primary-color-hover);
-  stroke: var(--primary-color-hover);
-}
+
 #contact a svg{
   margin-right: .8rem;
 }
@@ -506,11 +542,6 @@ section#services{
   width: 100%;
   height: 40rem;
   object-fit: cover;
-}
-#contact .wrapper svg#phone path{
-  fill: var(--primary-color);
-  stroke: var(--primary-color);
-  transition: all .3s ease-in-out;
 }
 #contact .wrapper a.buttonContact svg path{
   stroke: none !important;
@@ -563,33 +594,21 @@ footer .wrapper .social-links{
 }
 
 /*======== BACK TO TOP BUTTON ====================================*/
-#backToTop {
+#whatsapp {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  width: 4.2rem;
-  height: 4.2rem;
+  width: 5.2rem;
+  height: 5.3rem;
 
-  border: .1rem solid white;
-  border-radius: 50%;
-
-  opacity: 0;
-  visibility: hidden;
-
-  transition: all .2s ease-in-out;
-}
-#backToTop svg circle{
-  fill: var(--primary-color);
-  transition: all .2s ease-in-out;
-}
-#backToTop:hover svg circle{
-  fill: var(--primary-color-hover);
-}
-#backToTop.show{
   opacity: 1;
   visibility: visible;
-}
 
+  transition: all .5s ease-in-out;
+}
+#whatsapp:hover{
+  transform: scale(1.2);
+}
 /*======== RESPONSIVIDADE ====================================*/
 @media (min-width: 1024px) {
   /*======== RESET ====================================*/
@@ -692,18 +711,12 @@ footer .wrapper .social-links{
     border: .1rem solid var(--primary-color);
     border-radius: 4rem;
   }
-  nav#navigation .menu .contact .buttonContact svg *{
-    fill: var(--primary-color);
-  }
   nav#navigation .menu .contact .buttonContact.active,
   nav#navigation .menu .contact .buttonContact:hover{
     color: white;
     background-color: var(--primary-color);
   }
-  nav#navigation .menu .contact .buttonContact.active svg *,
-  nav#navigation .menu .contact .buttonContact:hover svg *{
-    fill: white;
-  }
+
   nav#navigation .wrapper button,
   nav#navigation .wrapper .social-links{
     display: none;
@@ -742,56 +755,29 @@ footer .wrapper .social-links{
   #home .slider .wrapper-full .slides .slide::before{
     height: var(--slider-height);
   }
-  section#home .slider .wrapper-full .slides .slide .wrapper .col-A header h4 {
-    font-size: 2rem;
+  #home .slider .wrapper-full .slides .slide .wrapper{
+    height: var(--slider-height);
   }
-  #home .slider .wrapper-full .slides .slide .wrapper .col-A p {
-    display: block;
-    margin-bottom: 3.2rem;
-  
-    font-size: 1.8rem;
-    font-weight: 600;
-    line-height: 150%;
-    text-align: center;
-    color: var(--primary-color-light);
-    text-shadow: 2px 2px 0px var(--primary-color); 
-  }
-/*   #home::before{
-    height: calc(95% - var(--nav-height));
-  }
-  #home {
-    padding-top: calc(var(--nav-height) + 6rem);
-    padding-bottom: 6rem;
-  }
-  #home header h1{
-    font-size: 5.2rem;
-    line-height: 130%;
-  }
-  #home header h1,
-  #home header h4,
-  #home .content p{
-    text-align: center;
-  }
-  #home .buttonContact{
+  #home .slider .wrapper-full .slides .slide .wrapper .col-A .content{
+    width: 80%;
     margin-inline: auto;
   }
-  #home img{
-    grid-area: B;
-    align-self:flex-end;
-    width: 100%;
+  #home .slider .wrapper-full .slides .slide-3 .wrapper .col-A .content{
+    margin-top: 8rem;
   }
-  #home ul.stats{
-    flex-direction: row;
-    grid-area: C;
-    margin-top: .5rem;
-    gap: 0;
+
+  #home .slider .wrapper-full .slides .slide .wrapper .col-A .content p {
+    font-size: 1.8rem;
   }
-  #home ul.stats .stat{
-    flex: 1;
+  #home .slider .wrapper-full .slides .slide .wrapper .col-A .content .buttonContact{
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    padding: 1.2rem 1.8rem;
+    gap: 1.4rem;
   }
-  #home ul.stats .stat + .stat{
-    border-left: .1rem solid var(--primary-color);
-  } */
+  #home .slider .wrapper-full .slides .slide .wrapper .col-A .content .buttonContact svg{
+    display: initial;
+  }
   /*======== SERVICES ====================================*/
   section#services {
     padding-top: 2rem !important;
@@ -843,7 +829,35 @@ footer .wrapper .social-links{
       grid-area: B;
       align-self: center;
     }
-    #contact .wrapper iframe{
+    #contact .wrapper .col-B form label,
+    #contact .wrapper .col-B form p{
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: .2rem;
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      line-height: 2;
+    }
+    #contact .wrapper .col-B form input,
+    #contact .wrapper .col-B form textarea{
+      border: 1px solid var(--primary-color);
+      background-color: transparent;
+      border-radius: .4rem;
+      width: 100%;
+      padding: .4rem;
+      font-size: 1.5rem;
+      line-height: 2rem;
+      resize: none;
+    }
+    #contact .wrapper .col-B form textarea{
+      height: 100%;
+    }
+    #contact .wrapper .col-B form input[type="submit"]{
+      background-color:  var(--primary-color);
+      color: var(--primary-color-light);
+      font-family: 'Bebas Neue', sans-serif;
+letter-spacing: .2rem;
+    }
+    #contact .wrapper p{
       margin-bottom: 0;
     }
     #contact .wrapper .col-C{
@@ -857,11 +871,7 @@ footer .wrapper .social-links{
     #contact .buttonContact{
       margin-bottom: 0;
     }
-    #contact a:not(.buttonContact),
-    #contact .wrapper p{
-      margin-bottom:0;
-    }
-    #contact p
+
     /*======== FOOTER ====================================*/
     footer {
       padding-block: 8rem;
