@@ -216,10 +216,10 @@ function goToSlide(slide) {
   sliderInfo.slidesContainer[0].style.left =
     -(index * sliderInfo.slideSize) + 'px';
 }
-/* function autoRunSlider() {
+function autoRunSlider() {
   setInterval(function () {
     document.querySelector('.next').click();
   }, 8000);
 }
-autoRunSlider(); */
+autoRunSlider();
 //-------------SLIDER-END----------------//
